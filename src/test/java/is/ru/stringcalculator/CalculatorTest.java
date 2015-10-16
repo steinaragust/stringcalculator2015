@@ -20,14 +20,10 @@ public class CalculatorTest {
 	@Test
 	public void testAddTriangle() {
 		String test = "";
-		for(int i = 1; i < 100; i++){
-			if(i != 99){
-				test += Integer.toString(i) + ",";
-			}
-			else{
-				test += Integer.toString(i);
-			}
+		for(int i = 1; i < 99; i++){
+			test += Integer.toString(i) + ",";
 		}
+		test += Integer.toString(99);
 		assertEquals(4950, Calculator.add(test));
 	}
 

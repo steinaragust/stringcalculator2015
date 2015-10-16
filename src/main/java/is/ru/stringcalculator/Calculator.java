@@ -10,12 +10,16 @@ public class Calculator {
 			return Integer.parseInt(text);
 		}
 		else{
-			String numbers[] = text.split(",");
-			int result = 0;
-			for(int i = 0; i < numbers.length; i++){
-				result += Integer.parseInt(numbers[i]);
-			}
-			return result;
+			return getSumOfMultiple(text);
 		}
+	}
+
+	public static int getSumOfMultiple(String text){
+		String numbers[] = text.split(",|\\\n");
+		int result = 0;
+		for(int i = 0; i < numbers.length; i++){
+			result += Integer.parseInt(numbers[i]);
+		}
+		return result;
 	}
 }
