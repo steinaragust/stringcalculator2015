@@ -42,4 +42,24 @@ public class CalculatorTest {
 		test += Integer.toString(99);
 		assertEquals(4950, Calculator.add(test));
 	}
+
+	/* Fourth step */
+	@Test
+	public void testAddTriangleDL() {
+		String test = "\\;\n";
+		for(int i = 1; i < 99; i++){
+			test += Integer.toString(i) + ";";
+		}
+		test += Integer.toString(99);
+		assertEquals(4950, Calculator.add(test));
+
+		test = "\\!\n";
+		for(int i = 1; i < 99; i++){
+			test += Integer.toString(i) + "!";
+		}
+		test += Integer.toString(99);
+		assertEquals(4950, Calculator.add(test));
+	}
+
+
 }
