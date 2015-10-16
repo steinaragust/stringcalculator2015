@@ -15,7 +15,15 @@ public class Calculator {
 	}
 
 	public static int getSumOfMultiple(String text){
-		String numbers[] = text.split(",|\\\n");
+		String numbers[];
+		if(!Character.isDigit(text.charAt(0))){
+			char del = text.charAt(1);
+			text = text.substring(3);
+			numbers = text.split(Character.toString(del));
+		}
+		else{
+			numbers = text.split(",|\\\n");
+		}
 		int result = 0;
 		for(int i = 0; i < numbers.length; i++){
 			result += Integer.parseInt(numbers[i]);
