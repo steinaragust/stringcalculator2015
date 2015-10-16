@@ -22,14 +22,12 @@ public class CalculatorTest {
 		String test = "";
 		for(int i = 1; i < 100; i++){
 			if(i != 99){
-				test = test + Integer.toString(i) + ",";
+				test += Integer.toString(i) + ",";
 			}
 			else{
-				test += test + Integer.toString(i);
+				test += Integer.toString(i);
 			}
 		}
 		assertEquals(4950, Calculator.add(test));
 	}
-
-
 }
