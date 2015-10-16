@@ -30,4 +30,21 @@ public class CalculatorTest {
 		}
 		assertEquals(4950, Calculator.add(test));
 	}
+
+	/* Third step */
+	@Test
+	public void testAddTriangleNL() {
+		String test = "";
+		for(int i = 1; i < 99; i++){
+			if(i % 2 == 0){
+				test += Integer.toString(i) + "\n";
+			}
+			else{
+				test += Integer.toString(i) + ",";
+			}
+		}
+		test += Integer.toString(99);
+		System.out.println(test);
+		//assertEquals(4950, Calculator.add(test));
+	}
 }
