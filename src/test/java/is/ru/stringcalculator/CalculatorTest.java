@@ -44,7 +44,6 @@ public class CalculatorTest {
 			}
 		}
 		test += Integer.toString(99);
-		System.out.println(test);
-		//assertEquals(4950, Calculator.add(test));
+		assertEquals(4950, Calculator.add(test));
 	}
 }
