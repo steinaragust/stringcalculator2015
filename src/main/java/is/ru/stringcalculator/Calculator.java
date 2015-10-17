@@ -1,5 +1,7 @@
 package is.ru.stringcalculator;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import is.ru.stringcalculator.*;
 
 public class Calculator {
@@ -56,6 +58,13 @@ public class Calculator {
 			String del[] = text.split("\n", 2);
 			text = del[1];
 			del[0] = del[0].substring(1);
+			if(del[0].charAt(0) == '['){
+				String delimits = "";
+				for(int i = 0; i + 2 < del[0].length(); i += 3){
+					delimits += "\\" + del[0].charAt(i + 1) + "|";
+				}
+				delimits = delimits.substring(0, delimits.length() - 1);
+				return text.split(delimits);			}
 			return text.split(del[0]);
 		}
 		return text.split(",|\\\n");
