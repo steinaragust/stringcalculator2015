@@ -93,4 +93,16 @@ public class CalculatorTest {
 			assertEquals(NegativeException.class, e.getClass());
 		}
 	}
-}
+
+	/* Sixth step */
+	@Test
+	public void testAddTriangleDL() throws NegativeException{
+		String test = "\\;\n";
+		for(int i = 1; i < 2001; i++){
+			test += Integer.toString(i) + ";";
+		}
+		test += Integer.toString(2000);
+		assertEquals(500500, calc.add(test));
+		test = "1001";
+		assertEquals(0, calc.add(test));
+	}
