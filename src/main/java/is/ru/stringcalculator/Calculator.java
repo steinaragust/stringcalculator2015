@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import is.ru.stringcalculator.*;
+import org.apache.commons.lang3.StringUtils;
 
 public class Calculator {
 
@@ -60,11 +61,14 @@ public class Calculator {
 			del[0] = del[0].substring(1);
 			if(del[0].charAt(0) == '['){
 				String delimits = "";
-				for(int i = 0; i + 2 < del[0].length(); i += 3){
-					delimits += "\\" + del[0].charAt(i + 1) + "|";
+			    Pattern p = Pattern.compile("\\[(.*?)\\]");
+				Matcher m = p.matcher(del[0]);
+				while(m.find()) {
+					delimits += StringUtils.repeat(("\\" + m.group(1).charAt(0)), m.group(1).length()) + "|";
 				}
 				delimits = delimits.substring(0, delimits.length() - 1);
-				return text.split(delimits);			}
+				return text.split(delimits);	
+			}
 			return text.split(del[0]);
 		}
 		return text.split(",|\\\n");
