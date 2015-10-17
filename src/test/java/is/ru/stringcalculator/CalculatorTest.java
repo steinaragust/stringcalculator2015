@@ -146,4 +146,27 @@ public class CalculatorTest {
 		test += Integer.toString(99);
 		assertEquals(4950, calc.add(test));
 	}
+
+	/* Ninth step */
+	@Test
+	public void testAddTriangleMDD() throws NegativeException{
+		String test = "\\[***][%%%]\n";
+		for(int i = 1; i < 99; i++){
+			if(i % 2 == 0){
+				test += Integer.toString(i) + "***";
+			}
+			else{
+				test += Integer.toString(i) + "%%%";
+			}
+		}
+		test += Integer.toString(99);
+		assertEquals(4950, calc.add(test));
+
+		test = "\\[$$$]\n";
+		for(int i = 1; i < 99; i++){
+			test += Integer.toString(i) + "$$$";
+		}
+		test += Integer.toString(99);
+		assertEquals(4950, calc.add(test));
+	}
 }
