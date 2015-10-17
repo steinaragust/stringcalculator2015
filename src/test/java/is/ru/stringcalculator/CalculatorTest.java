@@ -96,7 +96,7 @@ public class CalculatorTest {
 
 	/* Sixth step */
 	@Test
-	public void testAddTriangleDL() throws NegativeException{
+	public void testAddTriangleO() throws NegativeException{
 		String test = "\\;\n";
 		for(int i = 1; i < 2001; i++){
 			test += Integer.toString(i) + ";";
@@ -106,3 +106,23 @@ public class CalculatorTest {
 		test = "1001";
 		assertEquals(0, calc.add(test));
 	}
+
+	/* Seventh step */
+	@Test
+	public void testAddTriangleDLD() throws NegativeException{
+		String test = "\\;;;\n";
+		for(int i = 1; i < 99; i++){
+			test += Integer.toString(i) + ";;;";
+		}
+		test += Integer.toString(99);
+		assertEquals(4950, calc.add(test));
+
+		test = "\\!!!\n";
+		for(int i = 1; i < 99; i++){
+			test += Integer.toString(i) + "!!!";
+		}
+		test += Integer.toString(99);
+		assertEquals(4950, calc.add(test));
+	}
+
+}

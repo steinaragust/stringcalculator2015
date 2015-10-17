@@ -25,24 +25,15 @@ public class Calculator {
 	}
 
 	public int getSumOfMultiple(String text) throws NegativeException{
-		String numbers[];
+		String numbers[] = splitString(text);
+		int result = 0, number;
 		List<String> negativeNumbers = new ArrayList<String>();
-		if(!Character.isDigit(text.charAt(0)) && text.charAt(0) != '-'){
-			char del = text.charAt(1);
-			text = text.substring(3);
-			numbers = text.split(Character.toString(del));
-		}
-		else{
-			numbers = text.split(",|\\\n");
-		}
-		int result = 0;
-		int number;
 		for(int i = 0; i < numbers.length; i++){
 			number = Integer.parseInt(numbers[i]);
 			if(number < 0){
 				negativeNumbers.add(numbers[i]);
 			}
-			else{
+			else if(number < 1001){
 				result += number;
 			}
 		}
@@ -54,6 +45,19 @@ public class Calculator {
 			message += negativeNumbers.get(negativeNumbers.size() - 1);
 			throw new NegativeException("Negatives not allowed: " + message);
 		}
+		if(result == 0){
+			return 0;
+		}
 		return result;
+	}
+
+	public String[] splitString(String text){
+		if(!Character.isDigit(text.charAt(0)) && text.charAt(0) != '-'){
+			String del[] = text.split("\n", 2);
+			text = del[1];
+			del[0] = del[0].substring(1);
+			return text.split(del[0]);
+		}
+		return text.split(",|\\\n");
 	}
 }
